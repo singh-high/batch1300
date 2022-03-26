@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Templates</title>
+</head>
+<body>
+<h1>We are learning templates today.</h1>
+<h2>Client Names</h2>
+{{ key1 }}
+
+<br>
+
+{{ key2 }}
+
+<br>
+<img src="{% static 'images/image.jpg' %}" alt="Image" height="400" width="300">
+<br>
+
+<h1>Here is your records</h1>
+{% if access %}
+<table>
+    <thead>
+        <th>Site Name</th>
+        <th>Date</th>
+    </thead>
+    {% for i in access %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.date }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h2>Not found</h2>
+    {% endif %}
+</table>
+</body>
+</html>
